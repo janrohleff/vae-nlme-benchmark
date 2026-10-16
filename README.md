@@ -3,7 +3,7 @@
 This repository contains every run of the paper
 
 > Rohleff J, Krause A, Koch G, Schropp J. *Benchmarking the Variational Autoencoder against SAEM in Monolix and FOCEI in
-> NONMEM: Combining accuracy and speed in nonlinear mixed effects modeling.* [LINK]
+> NONMEM: Combining Accuracy and Speed in Nonlinear Mixed Effects Modeling.* [LINK]
 
 Each run is a complete project of its tool: data, model, settings and results. It can be opened and repeated
 without any other file. VAE Studio is available at [Link].
