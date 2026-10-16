@@ -1,18 +1,18 @@
-# VAE Studio vs. Monolix (SAEM) and NONMEM (FOCEI): benchmark runs
+# VAE Studio (VAE) vs. Monolix (SAEM) and NONMEM (FOCEI): benchmark runs
 
 This repository contains every run of the paper
 
-> Rohleff J, Krause A, Koch G, Schropp J. *Benchmarking the Variational Autoencoder against Monolix and NONMEM:
-> Combining the accuracy of SAEM with the speed of FOCEI in nonlinear mixed effects modeling.* [LINK]
+> Rohleff J, Krause A, Koch G, Schropp J. *Benchmarking the Variational Autoencoder against SAEM in Monolix and FOCEI in
+> NONMEM: Combining accuracy and speed in nonlinear mixed effects modeling.* [LINK]
 
 Each run is a complete project of its tool: data, model, settings and results. It can be opened and repeated
 without any other file. VAE Studio is available at [Link].
 
 ## Structure
 
-There is one folder per data set. Inside, every tool has its own subfolder: `Monolix_SAEM`, `NONMEM_FOCEI` and
-`VAE_Studio`. Data sets with known true parameters also contain `true_parameters.json` (population parameters) and
-`true_individual_parameters.csv`.
+There is one folder per data set. Inside, every tool has its own subfolder, named software_algorithm:
+`Monolix_SAEM`, `NONMEM_FOCEI` and `VAEStudio_VAE`. Data sets with known true parameters also contain
+`true_parameters.json` (population parameters) and `true_individual_parameters.csv`.
 
 | Folder | Content | Paper |
 |---|---|---|
@@ -32,11 +32,11 @@ indirect_response, TMDD_QSS, myelosuppression, tumour_growth_inhibition, daridor
 indirect_response_binding). Model equations, true parameters and starting values are given in Supplement S2.
 
 Neural network study: `weights_XXX/start_weights.npz` holds the common starting weights of all three tools,
-`simulation/` the simulated data with the true production function, and `true_parameters/VAE_Studio` the likelihood
+`simulation/` the simulated data with the true production function, and `true_parameters/VAEStudio_VAE` the likelihood
 at the true parameters.
 
-Covariate selection: `candidates_000` holds the model without covariates (Monolix_SAEM, VAE_Studio). From two
-candidates on, the folders contain the VAE run with integrated selection (`VAE_Studio`) and the Monolix model
+Covariate selection: `candidates_000` holds the model without covariates (Monolix_SAEM, VAEStudio_VAE). From two
+candidates on, the folders contain the VAE run with integrated selection (`VAEStudio_VAE`) and the Monolix model
 building with covSAMBA, COSSAC and SCM (`Monolix_covSAMBA`, `Monolix_COSSAC`, `Monolix_SCM`; SCM up to 128
 candidates). The candidate models evaluated during the Monolix model building are not included (about 50 GB); the
 selected model and the history of every search are in `out/ModelBuilding/modelBuilding.txt` and `result.json`.
@@ -76,7 +76,7 @@ SIGMA belongs to which parameter).
   (`fpilinux8.pnm` from NONMEM's `run/` folder; without it the run is serial, then remove the `PARAFILE=` options
   from `$EST`). Run in a path without spaces.
 
-### VAE Studio (`VAE_Studio`)
+### VAE Studio (`VAEStudio_VAE`)
 
 A run folder is a VAE Studio project: the data file, `model.txt` (structural model in plain text), `summary.txt` and
 `results/` (readable results) and `engine/` (everything the engine needs, including the project specification
